@@ -1,7 +1,5 @@
 package org.bohan.news;
 
-import com.alibaba.fastjson.JSON;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +37,11 @@ public class NewsRepository {
             pstmt.setString(2, password);
             pstmt.setString(3, nickname);
             pstmt.executeUpdate();
+            pstmt.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     //-- ·用户编辑自己的昵称等账号信息
@@ -61,6 +61,7 @@ public class NewsRepository {
             pstmt.setString(1, nickname);
             pstmt.setInt(2, uid);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -72,6 +73,7 @@ public class NewsRepository {
             pstmt.setString(1, avatarUrl);
             pstmt.setInt(2, uid);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -83,6 +85,7 @@ public class NewsRepository {
             pstmt.setString(1, password);
             pstmt.setInt(2, uid);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -96,11 +99,14 @@ public class NewsRepository {
             pstmt.setString(2, password);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
+                rs.close(); // 释放资源
+                pstmt.close(); // 释放资源
                 return true;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        
         return false;
     }
 
@@ -138,9 +144,12 @@ public class NewsRepository {
                 newsItem.setSharesCount(rs.getInt("shares_count"));
                 newsList.add(newsItem);
             }
+            rs.close(); // 释放资源
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
         return newsList;
     }
 
@@ -180,6 +189,8 @@ public class NewsRepository {
                 newsItem.setSharesCount(rs.getInt("shares_count"));
                 newsList.add(newsItem);
             }
+            rs.close(); // 释放资源
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -225,6 +236,8 @@ public class NewsRepository {
                 newsItem.setSharesCount(rs.getInt("shares_count"));
                 newsList.add(newsItem);
             }
+            rs.close(); // 释放资源
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -266,6 +279,8 @@ public class NewsRepository {
                 newsItem.setSharesCount(rs.getInt("shares_count"));
                 newsItem.setBody(rs.getString("body"));
             }
+            rs.close(); // 释放资源
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -289,6 +304,8 @@ public class NewsRepository {
                 comment.setDownvotes(rs.getInt("downvotes"));
                 comment.setCommentTime(rs.getDate("comment_time"));
             }
+            rs.close(); // 释放资源
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -318,6 +335,7 @@ public class NewsRepository {
             pstmt.setInt(1, newsId);
             pstmt.setInt(2, uid);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -325,6 +343,7 @@ public class NewsRepository {
                 "UPDATE `Content` SET favorites_count = favorites_count + 1 WHERE news_id = ?")) {
             pstmt.setInt(1, newsId);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -335,6 +354,7 @@ public class NewsRepository {
                 "UPDATE `Content` SET shares_count = shares_count + 1 WHERE news_id = ?")) {
             pstmt.setInt(1, newsId);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -356,6 +376,7 @@ public class NewsRepository {
             pstmt.setInt(2, comment.getNewsId());
             pstmt.setString(3, comment.getContent());
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -372,6 +393,7 @@ public class NewsRepository {
                 "UPDATE `Comment` SET upvotes = upvotes + 1 WHERE comment_id = ?")) {
             pstmt.setInt(1, commentId);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -382,6 +404,7 @@ public class NewsRepository {
                 "UPDATE `Comment` SET downvotes = downvotes + 1 WHERE comment_id = ?")) {
             pstmt.setInt(1, commentId);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -396,6 +419,7 @@ public class NewsRepository {
             pstmt.setInt(1, commentId);
             pstmt.setInt(2, uid);
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -426,6 +450,8 @@ public class NewsRepository {
                 comment.setDownvotes(rs.getInt("downvotes"));
                 commentList.add(comment);
             }
+            rs.close(); // 释放资源
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -465,6 +491,8 @@ public class NewsRepository {
                 newsItem.setBody(rs.getString("body"));
                 newsList.add(newsItem);
             }
+            rs.close(); // 释放资源
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -503,6 +531,7 @@ public class NewsRepository {
             pstmt.setString(6, newsItem.getBody());
             pstmt.setBoolean(7, newsItem.isSponsored());
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -536,13 +565,13 @@ public class NewsRepository {
                 advertisement.setValidityPeriodEnd(rs.getDate("validity_period_end"));
                 String region_limit = rs.getString("region_limit");
                 if (region_limit != null) {
-                    advertisement.setRegionLimit(JSON.parseObject(region_limit));
+                    advertisement.setRegionLimit(region_limit);
                 }else {
                     advertisement.setRegionLimit(null);
                 }
                 String device_limit = rs.getString("device_limit");
                 if (device_limit != null) {
-                    advertisement.setDeviceLimit(JSON.parseObject(device_limit));
+                    advertisement.setDeviceLimit(device_limit);
                 }else {
                     advertisement.setDeviceLimit(null);
                 }
@@ -550,6 +579,8 @@ public class NewsRepository {
                 advertisement.setPriority(rs.getInt("priority"));
                 advertisementList.add(advertisement);
             }
+            rs.close(); // 释放资源
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -557,6 +588,7 @@ public class NewsRepository {
     }
 
     public void close() throws SQLException {
+        // 释放资源
         conn.close();
     }
 
@@ -595,6 +627,7 @@ public class NewsRepository {
             pstmt.setDate(7, advertisement.getValidityPeriodEnd());
             pstmt.setInt(8, advertisement.getPriority());
             pstmt.executeUpdate();
+            pstmt.close(); // 释放资源
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

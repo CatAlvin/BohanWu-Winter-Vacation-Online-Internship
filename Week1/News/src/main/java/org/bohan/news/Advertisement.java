@@ -1,7 +1,6 @@
 package org.bohan.news;
 
 import java.sql.Date;
-import com.alibaba.fastjson.JSONObject;
 
 public class Advertisement {
     private int adId;
@@ -12,8 +11,8 @@ public class Advertisement {
     private String advertiser;
     private Date validityPeriodStart;
     private Date validityPeriodEnd;
-    private JSONObject regionLimit;
-    private JSONObject deviceLimit;
+    private String regionLimit;
+    private String deviceLimit;
     private int clicks;
     private int impressions;
     private int priority;
@@ -112,19 +111,19 @@ public class Advertisement {
         this.validityPeriodEnd = validityPeriodEnd;
     }
 
-    public JSONObject getRegionLimit() {
+    public String getRegionLimit() {
         return regionLimit;
     }
 
-    public void setRegionLimit(JSONObject regionLimit) {
+    public void setRegionLimit(String regionLimit) {
         this.regionLimit = regionLimit;
     }
 
-    public JSONObject getDeviceLimit() {
+    public String getDeviceLimit() {
         return deviceLimit;
     }
 
-    public void setDeviceLimit(JSONObject deviceLimit) {
+    public void setDeviceLimit(String deviceLimit) {
         this.deviceLimit = deviceLimit;
     }
 

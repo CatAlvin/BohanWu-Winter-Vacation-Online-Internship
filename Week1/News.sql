@@ -9,7 +9,7 @@ USE news;
 -- create user table
 CREATE TABLE
     `User` (
-        uid INT AUTO_INCREMENT PRIMARY KEY,
+        uid BIGINT AUTO_INCREMENT PRIMARY KEY,
         -- 用户ID
         mobile_number VARCHAR(255),
         -- 绑定的手机号
@@ -30,7 +30,7 @@ CREATE TABLE
 -- create news table
 CREATE TABLE
     `Content` (
-        news_id INT AUTO_INCREMENT PRIMARY KEY,
+        news_id BIGINT AUTO_INCREMENT PRIMARY KEY,
         -- 新闻ID
         title VARCHAR(255) NOT NULL,
         -- 标题
@@ -57,7 +57,7 @@ CREATE TABLE
 -- create news category table
 CREATE TABLE
     `Category` (
-        category_id INT AUTO_INCREMENT PRIMARY KEY,
+        category_id BIGINT AUTO_INCREMENT PRIMARY KEY,
         -- 分区ID
         name VARCHAR(255) NOT NULL,
         -- 分区名称
@@ -68,7 +68,7 @@ CREATE TABLE
 -- create comment table
 CREATE TABLE
     `Comment` (
-        comment_id INT AUTO_INCREMENT PRIMARY KEY,
+        comment_id BIGINT AUTO_INCREMENT PRIMARY KEY,
         -- 评论ID
         user_id INT NOT NULL,
         -- 评论者ID
@@ -91,7 +91,7 @@ CREATE TABLE
 -- create ad table
 CREATE TABLE
     Advertisement (
-        ad_id INT AUTO_INCREMENT PRIMARY KEY,
+        ad_id BIGINT AUTO_INCREMENT PRIMARY KEY,
         -- 广告ID
         title VARCHAR(255) NOT NULL,
         -- 标题
@@ -128,7 +128,7 @@ CREATE TABLE
 -- create browsing history table
 CREATE TABLE
     BrowsingHistory (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
         -- 浏览历史ID
         uid INT NOT NULL,
         -- 用户ID
@@ -142,7 +142,7 @@ CREATE TABLE
 -- create comment history table
 CREATE TABLE
     CommentHistory (
-        id INT AUTO_INCREMENT PRIMARY KEY,
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
         -- 评论历史ID
         uid INT NOT NULL,
         -- 用户ID

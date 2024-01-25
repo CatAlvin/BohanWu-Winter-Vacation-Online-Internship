@@ -1,7 +1,5 @@
 package org.bohan.news;
 
-import com.alibaba.fastjson.JSONObject;
-
 import java.sql.Date;
 
 public class User {
@@ -11,8 +9,8 @@ public class User {
     private String password;
     private String avatarUrl;
     private String nickname;
-    private JSONObject favorites;
-    private JSONObject newsPreferences;
+    private String favorites;
+    private String newsPreferences;
     private Date lastLoginTime;
 
     public User() {
@@ -81,19 +79,19 @@ public class User {
         this.nickname = nickname;
     }
 
-    public JSONObject getFavorites() {
+    public String getFavorites() {
         return favorites;
     }
 
-    public void setFavorites(JSONObject favorites) {
+    public void setFavorites(String favorites) {
         this.favorites = favorites;
     }
 
-    public JSONObject getNewsPreferences() {
+    public String getNewsPreferences() {
         return newsPreferences;
     }
 
-    public void setNewsPreferences(JSONObject newsPreferences) {
+    public void setNewsPreferences(String newsPreferences) {
         this.newsPreferences = newsPreferences;
     }
 
