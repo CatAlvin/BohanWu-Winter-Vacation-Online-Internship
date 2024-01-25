@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="IoCModel:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/IoCModel_jar</output-path>
+    <root id="archive" name="IoCModel.jar">
+      <element id="module-output" name="IoCModel" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/slf4j/slf4j-api/2.0.0/slf4j-api-2.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/springframework/spring-context/6.0.2/spring-context-6.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/springframework/spring-aop/6.0.2/spring-aop-6.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/junit/jupiter/junit-jupiter-api/5.6.3/junit-jupiter-api-5.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/junit/platform/junit-platform-commons/1.6.3/junit-platform-commons-1.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/apache/logging/log4j/log4j-core/2.19.0/log4j-core-2.19.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/springframework/spring-beans/6.0.2/spring-beans-6.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/springframework/spring-expression/6.0.2/spring-expression-6.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/apache/logging/log4j/log4j-slf4j2-impl/2.19.0/log4j-slf4j2-impl-2.19.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/springframework/spring-core/6.0.2/spring-core-6.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../../Maven/repmvn/org/springframework/spring-jcl/6.0.2/spring-jcl-6.0.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

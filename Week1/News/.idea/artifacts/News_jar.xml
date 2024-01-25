@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="News:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/News_jar</output-path>
+    <root id="archive" name="News.jar">
+      <element id="module-output" name="News" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Maven/repmvn/com/alibaba/fastjson2/fastjson2-extension/2.0.1/fastjson2-extension-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Maven/repmvn/com/alibaba/fastjson2/fastjson2/2.0.1/fastjson2-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Maven/repmvn/com/google/protobuf/protobuf-java/3.21.9/protobuf-java-3.21.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Maven/repmvn/com/alibaba/fastjson/2.0.1/fastjson-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Maven/repmvn/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

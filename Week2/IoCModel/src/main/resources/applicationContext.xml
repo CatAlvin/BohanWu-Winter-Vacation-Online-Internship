@@ -1,0 +1,63 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置Ads -->
+    <bean id="ad1" class="org.bohan.ioc.Ad">
+        <constructor-arg name="name" value="广告1"/>
+        <constructor-arg name="company" value="公司1"/>
+        <constructor-arg name="content" value="广告内容1"/>
+    </bean>
+
+    <bean id="ad2" class="org.bohan.ioc.Ad">
+        <constructor-arg name="name" value="广告2"/>
+        <constructor-arg name="company" value="公司2"/>
+        <constructor-arg name="content" value="广告内容2"/>
+    </bean>
+
+    <bean id="ad3" class="org.bohan.ioc.Ad">
+        <constructor-arg name="name" value="广告3"/>
+        <constructor-arg name="company" value="公司3"/>
+        <constructor-arg name="content" value="广告内容3"/>
+    </bean>
+
+
+    <!-- 配置Comments -->
+    <bean id="comment1" class="org.bohan.ioc.Comments">
+        <constructor-arg name="author" value="用户1"/>
+        <constructor-arg name="text" value="很有趣的文章！"/>
+    </bean>
+
+    <bean id="comment2" class="org.bohan.ioc.Comments">
+        <constructor-arg name="author" value="用户2"/>
+        <constructor-arg name="text" value="很棒！"/>
+    </bean>
+
+    <bean id="comment3" class="org.bohan.ioc.Comments">
+        <constructor-arg name="author" value="用户3"/>
+        <constructor-arg name="text" value="太赞了！！！"/>
+    </bean>
+
+    <!-- 配置Press -->
+    <bean id="press1" class="org.bohan.ioc.Press">
+        <constructor-arg name="title" value="文章"/>
+        <constructor-arg name="content" value="文章内容"/>
+        <constructor-arg name="ads">
+            <list> <!-- 包含多个广告 -->
+                <ref bean="ad1"/>
+                <ref bean="ad2"/>
+                <ref bean="ad3"/>
+                <!-- 添加广告 -->
+            </list>
+        </constructor-arg>
+        <constructor-arg name="comments">
+            <list> <!-- 包含多个评论 -->
+                <ref bean="comment1"/>
+                <ref bean="comment2"/>
+                <ref bean="comment3"/>
+                <!-- 添加评论 -->
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
