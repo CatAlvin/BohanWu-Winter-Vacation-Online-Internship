@@ -16,7 +16,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 /**
  * 安全配置类
  *
- * @author chuan
+ * @author bohan
  */
 @Configuration
 @EnableWebSecurity
