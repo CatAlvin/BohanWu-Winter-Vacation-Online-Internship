@@ -1,0 +1,92 @@
+# DataSource Config
+spring:
+  application:
+    name: news-portal-auth
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/newsportal?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: wbh53100
+  sql:
+    init:
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+      mode: always
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: b79195fd7f914ea73f0d
+            clientSecret: 4215aeac89ba04678f4ee1310690a82f334c83bb
+            scope: read:user
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+            user-name-attribute: id
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 127.0.0.1:8848
+  config:
+    import:
+      - nacos:news-portal-auth.properties?refresh=true
+
+  boot:
+    admin:
+      client:
+        # admin-server地址
+        url: 'http://localhost:18084'
+        username: 'admin'
+        password: '123456'
+        instance:
+          metadata:
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+
+
+# 开放健康检查接口
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8083
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: pers.bohan.authService
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+# Logger Config
+logging:
+  level:
+    org.bohan.newsportal: debug
+
+bohan:
+  newsportal:
+    jwtExpirationMs: 86400000
+    jwtSecret: ======================BohanSecret=Spring===========================

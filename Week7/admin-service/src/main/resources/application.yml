@@ -1,0 +1,30 @@
+server:
+  port: 18084
+
+spring:
+  application:
+    name: news-portal-admin
+  security:
+    user:
+      name: admin
+      password: 123456
+
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 127.0.0.1:8848
+  config:
+    import:
+      - nacos:news-portal-admin.properties?refresh=true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'

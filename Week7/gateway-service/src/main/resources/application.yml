@@ -1,0 +1,67 @@
+# DataSource Config
+spring:
+  application:
+    name: news-portal-gateway
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 127.0.0.1:8848
+  config:
+    import:
+      - nacos:news-portal-gateway.properties?refresh=true
+
+  boot:
+    admin:
+      client:
+        # admin-server地址
+        url: 'http://localhost:18084'
+        username: 'admin'
+        password: '123456'
+        instance:
+          metadata:
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+
+
+# 开放健康检查接口
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8084
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: pers.bohan.gatewayService
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+# Logger Config
+logging:
+  level:
+    org.bohan.newsportal: debug
+
+bohan:
+  newsportal:
+    jwtExpirationMs: 86400000
+    jwtSecret: ======================BohanSecret=Spring===========================
